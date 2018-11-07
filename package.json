@@ -18,6 +18,9 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
-    "graphql-tools": "^4.0.3"
+    "graphql-tools": "^4.0.3",
+    "merge-graphql-schemas": "^1.5.7",
+    "mongoose": "^5.3.10",
+    "path": "^0.12.7"
   }
 }
