@@ -1,3 +1,3 @@
 #Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO001 - Configuracion de Graphql y Node
+## CAPITULO002 - Trabajando con resolvers, Schemas y models
