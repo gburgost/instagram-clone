@@ -5,6 +5,8 @@ import { makeExecutableSchema } from 'graphql-tools';
 import mongoose from 'mongoose';
 mongoose.Promise = global.Promise;
 
+import cors from 'cors'; //necesita cors para funcionar con graphql
+
 import models from './models';
 
 //mezclar todos los archivos ded carpetas de types y resolvers
@@ -22,6 +24,9 @@ const schema = makeExecutableSchema({
 const PORT = 3000;
 
 const app = express();
+app.use(cors({
+  origin:["http://localhost:3001"]
+}))
 
 //bodyParser is needed just for POST.
 app.use('/graphql', bodyParser.json(), graphqlExpress({
