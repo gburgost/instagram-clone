@@ -6,13 +6,12 @@ export default ({styles, handleClick, handleSubmit}) => {
 
   const handleChange = (ev, input) => {
     args[input.name] = input.value
-
   }
 
   return (
     <div>
       <div style={styles.box}>
-        <img src='images/logo.png' />
+        <img src='images/logo.png' alt="logo" />
         <Form onSubmit={(ev) => handleSubmit(ev, args)}>
           <Form.Field>
             <Form.Input name='email' onChange={handleChange} placeholder='email o nombre de usuario' icon={<Icon name='check circle outline' color='green' size='large' />} />

@@ -1,9 +1,9 @@
 import React from 'react';
 import {graphql} from 'react-apollo';
-import gql from 'graphql-tag';
+import gpl from 'graphql-tag';
 import Toolbar from '../components/Toolbar';
 
-const query = gql`
+const query = gpl`
   {
     allUsers {
       username
