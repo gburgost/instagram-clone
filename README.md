@@ -1,3 +1,3 @@
 #Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO006 - Registro de usuarios con graphql y react
+## CAPITULO007 - Validacion de errores en React con Mongoose y GraphQL

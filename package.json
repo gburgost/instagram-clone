@@ -23,6 +23,7 @@
     "graphql-tools": "^4.0.3",
     "merge-graphql-schemas": "^1.5.7",
     "mongoose": "^5.3.10",
+    "mongoose-validator": "^2.1.0",
     "path": "^0.12.7"
   }
 }

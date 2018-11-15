@@ -16,7 +16,9 @@ export default graphql(query)(
   ({data: {allUsers=[], loading}}) => [
     <Toolbar />,
     <ul>
-      {allUsers.map(userItem)}
+      {
+        allUsers.map(userItem)
+      }
     </ul>
   ]
 )
