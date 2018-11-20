@@ -1,3 +1,3 @@
 #Clon de INSTAGRAM con node, graphql, react, mongodb
 
-## CAPITULO007 - Validacion de errores en React con Mongoose y GraphQL
+## CAPITULO008 - Autenticando con JSON web tokens (JWT)
