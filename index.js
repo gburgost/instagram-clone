@@ -4,10 +4,12 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import mongoose from 'mongoose';
 mongoose.Promise = global.Promise;
+import "dotenv/config";
 
 import cors from 'cors'; //necesita cors para funcionar con graphql
 
 import models from './models';
+import auth from './auth';
 
 //mezclar todos los archivos ded carpetas de types y resolvers
 import path from 'path';
@@ -21,22 +23,22 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
-const PORT = 3000;
-const SECRET = "qwerty";
 
 const app = express();
 app.use(cors({
   origin:["http://localhost:3001"]
-}))
+}));
+app.use(auth.checkHeaders)
 
 //bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress({
-  schema,
-  context: {
-    models,
-    SECRET,
-    user: {
-      _id: 1, username: 'gonzalo'
+app.use('/graphql', bodyParser.json(), graphqlExpress((req) => {
+  console.log("User ID", req.user);
+  return {
+    schema,
+    context: {
+      models,
+      SECRET: process.env.SECRET,
+      user: req.user
     }
   }
 }));
@@ -46,7 +48,7 @@ app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' })); // if you wa
 mongoose.connect('mongodb://localhost:27017/instagram-clone', { useNewUrlParser: true }).then(
   () => {
     console.log('Conectado a Mongo!!');
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log('Running server...');
     });
   }
